@@ -3,6 +3,15 @@
 import unittest
 import steam_market as sm
 
+"""
+Formats price of listing in USD.
+
+@param price: Reported numeric price of listing in USD.
+@return Formatted price.
+"""
+def format_price_USD(price):
+    return '${:.2f}'.format(price/100)
+
 class TestTF2Items(unittest.TestCase):
     def runTest(self):
         tf2_items = [
@@ -23,11 +32,11 @@ class TestTF2Items(unittest.TestCase):
             print(item)
             market_item = sm.get_tf2_item(item)
             market_item.get_listings()
-            print([i.price for i in market_item.listings])
+            print([format_price_USD(i.price) for i in market_item.listings])
 
         print('\nTesting CS:GO Items:\n')
         for item in csgo_items:
             print(item)
             market_item = sm.get_csgo_item(item)
             market_item.get_listings()
-            print([i.price for i in market_item.listings])
+            print([format_price_USD(i.price) for i in market_item.listings])
