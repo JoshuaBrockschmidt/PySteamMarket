@@ -9,6 +9,7 @@ Python API for getting prices from the Steam market.
 import steam_market as sm
 
 item = sm.get_tf2_item('Strange Professional Killstreak Scattergun')
+item.get_listings()
 for listing in item.listings:
     print(listing.price)
 ```

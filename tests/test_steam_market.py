@@ -22,10 +22,12 @@ class TestTF2Items(unittest.TestCase):
         for item in tf2_items:
             print(item)
             market_item = sm.get_tf2_item(item)
+            market_item.get_listings()
             print([i.price for i in market_item.listings])
 
         print('\nTesting CS:GO Items:\n')
         for item in csgo_items:
             print(item)
             market_item = sm.get_csgo_item(item)
+            market_item.get_listings()
             print([i.price for i in market_item.listings])
